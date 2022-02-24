@@ -21,7 +21,7 @@ char Stack::get_command()
                     << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
                     << "[s] gives sum from all values  [h] instructions" << std::endl
                     << "[x] exchanges the place for last two values" << std::endl
-                    << "[a] gives average from all values" << std::endl
+                    << "[a] gives average [%] modulo" << std::endl
                     << "[Q]uit." << std::endl;
         }
     }
@@ -164,7 +164,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " / " << q << "= " << p / q << std::endl;
+                        std::cout << "The results is for " << p << " / " << q << " = " << p / q << std::endl;
                         numbers.pop();
                     }
                 }
@@ -188,7 +188,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " * " << q << "= " << p * q << std::endl;
+                        std::cout << "The results is for " << p << " * " << q << " = " << p * q << std::endl;
                         numbers.pop();
                     }
                 }
@@ -212,7 +212,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " * " << q << "= " << fmod(p,q) << std::endl;
+                        std::cout << "The results is for " << p << " % " << q << " = " << fmod(q,p) << std::endl;
                         numbers.pop();
                     }
                 }

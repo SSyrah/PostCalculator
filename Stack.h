@@ -3,6 +3,7 @@
 #include "Utility.h"
 #include <iostream>
 #include <ctype.h>
+#include <cmath>
 using namespace std;
 
 // Section 2.2:
