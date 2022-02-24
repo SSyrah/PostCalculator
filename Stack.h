@@ -4,7 +4,8 @@
 #include <iostream>
 #include <ctype.h>
 #include <cmath>
-using namespace std;
+#include <sstream>
+// using namespace std;
 
 // Section 2.2:
 
