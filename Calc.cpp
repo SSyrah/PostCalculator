@@ -12,7 +12,8 @@ char Stack::get_command()
         if (command == '?' || command == '=' || command == '+' ||
             command == '-' || command == '*' || command == '/' ||
             command == 'q' || command == 'x' || command == 's' ||
-            command == 'h' || command == 'a' || command == '%') waiting = false;
+            command == 'h' || command == 'a' || command == '%' ||
+            command == '^' || command == 'v') waiting = false;
 
 
         else {
@@ -21,7 +22,7 @@ char Stack::get_command()
                     << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
                     << "[s] gives sum from all values  [h] instructions" << std::endl
                     << "[x] exchanges the place for last two values" << std::endl
-                    << "[a] gives average [%] modulo" << std::endl
+                    << "[a] gives average [%] modulo [^] pow [v] sqrt " << std::endl
                     << "[Q]uit." << std::endl;
         }
     }
@@ -218,6 +219,55 @@ Uses: The class Stack.
                 }
             }
             break;
+        
+        case '^':
+            if (numbers.top(p) == underflow)
+                std::cout << "Stack empty" << std::endl;
+            else {
+                // numbers.pop();
+                if (numbers.size() == 1) {
+                    std::cout << "Stack has just one entry" << std::endl;
+                    // numbers.push(p);
+                }
+
+                else {
+                    numbers.pop();
+                    numbers.top(q);
+                    if (numbers.push(q + p) == overflow)
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
+                    else{
+                        numbers.pop();
+                        std::cout << "The results is for " << p << " ^ " << q << " = " << pow(p,q) << std::endl;
+                        numbers.pop();
+                    }
+                }
+            }
+            break;
+
+              
+        case 'v':
+            if (numbers.top(p) == underflow)
+                std::cout << "Stack empty" << std::endl;
+            else {
+                /* numbers.pop();
+                if (numbers.size() == 1) {
+                    std::cout << "Stack has just one entry" << std::endl;
+                    // numbers.push(p);
+                }*/
+
+                // else {
+                    numbers.pop();
+                    numbers.top(q);
+                    if (numbers.push(q + p) == overflow)
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
+                    else{
+                        numbers.pop();
+                        std::cout << "The results is for sqrt " << p << " = " << sqrt(p) << std::endl;
+                        numbers.pop();
+                    }
+               //}
+            }
+            break;
 
         case 'h':
             instructions();
@@ -239,9 +289,9 @@ void introduction() {
 void instructions(){
     std::cout << "How to use this calculator:"   << std::endl
          << "[?] push to stack   [=] print top value" << std::endl
-         << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
-         << "[s] gives sum from all values  [h] instructions" << std::endl
-         << "[x] exchanges the place for last two values" << std::endl
-         << "[a] gives average from all values" << std::endl
-         << "[Q]uit." << std::endl;
+        << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
+        << "[s] gives sum from all values  [h] instructions" << std::endl
+        << "[x] exchanges the place for last two values" << std::endl
+        << "[a] gives average [%] modulo [^] pow [v] sqrt " << std::endl
+        << "[Q]uit." << std::endl;
 }
