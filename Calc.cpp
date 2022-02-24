@@ -4,25 +4,25 @@ char Stack::get_command()
 {
     char command;
     bool waiting = true;
-    cout << "Select command and press <Enter>: ";
+    std::cout << "Select command and press <Enter>: ";
 
     while (waiting) {
-        cin >> command;
+        std::cin >> command;
         command = tolower(command);
         if (command == '?' || command == '=' || command == '+' ||
             command == '-' || command == '*' || command == '/' ||
             command == 'q' || command == 'x' || command == 's' ||
-            command == 'h' || command == 'a') waiting = false;
+            command == 'h' || command == 'a' || command == '%') waiting = false;
 
 
         else {
-            cout << "Please enter a valid command:"   << endl
-                    << "[?] push to stack   [=] print top value" << endl
-                    << "[+] [-] [*] [/]  are arithmetic operations" << endl
-                    << "[s] gives sum from all values  [h] instructions" << endl
-                    << "[x] exchanges the place for last two values" << endl
-                    << "[a] gives average from all values" << endl
-                    << "[Q]uit." << endl;
+            std::cout << "Please enter a valid command:"   << std::endl
+                    << "[?] push to stack   [=] print top value" << std::endl
+                    << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
+                    << "[s] gives sum from all values  [h] instructions" << std::endl
+                    << "[x] exchanges the place for last two values" << std::endl
+                    << "[a] gives average from all values" << std::endl
+                    << "[Q]uit." << std::endl;
         }
     }
     return command;
@@ -41,26 +41,26 @@ Uses: The class Stack.
     double p, q, r, s;
     switch (command) {
         case '?':
-            cout << "Enter a real number: " << flush;
-            cin >> p;
+            std::cout << "Enter a real number: " << std::flush;
+            std::cin >> p;
             if (numbers.push(p) == overflow)
-                cout << "Warning: Stack full, lost number" << endl;
+                std::cout << "Warning: Stack full, lost number" << std::endl;
             break;
 
         case '=':
             if (numbers.top(p) == underflow)
-                cout << "Stack empty" << endl;
+                std::cout << "Stack empty" << std::endl;
             else
-                cout << p << endl;
+                std::cout << p << std::endl;
             break;
 
         case '+':
             if (numbers.top(p) == underflow)
-                cout << "Stack empty" << endl;
+                std::cout << "Stack empty" << std::endl;
             else {
                 // numbers.pop();
                 if (numbers.size() == 1) {
-                    cout << "Stack has just one entry" << endl;
+                    std::cout << "Stack has just one entry" << std::endl;
                     // numbers.push(p);
                 }
 
@@ -68,10 +68,10 @@ Uses: The class Stack.
                     numbers.pop();
                     numbers.top(q);
                     if (numbers.push(q + p) == overflow)
-                        cout << "Warning: Stack full, lost result" << endl;
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                    cout << "The results is for " << p << " + " << q << "= " << p + q << endl;
+                    std::cout << "The results is for " << p << " + " << q << "= " << p + q << std::endl;
                         numbers.pop();
                     }
                 }
@@ -80,11 +80,11 @@ Uses: The class Stack.
 
         case '-':
             if (numbers.top(p) == underflow)
-                cout << "Stack empty" << endl;
+                std::cout << "Stack empty" << std::endl;
             else {
                 // numbers.pop();
                 if (numbers.size() == 1) {
-                    cout << "Stack has just one entry" << endl;
+                    std::cout << "Stack has just one entry" << std::endl;
                     // numbers.push(p);
                 }
 
@@ -92,10 +92,10 @@ Uses: The class Stack.
                     numbers.pop();
                     numbers.top(q);
                     if (numbers.push(q + p) == overflow)
-                        cout << "Warning: Stack full, lost result" << endl;
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        cout << "The results is for " << p << " - " << q << "= " << p - q << endl;
+                        std::cout << "The results is for " << p << " - " << q << "= " << p - q << std::endl;
                         numbers.pop();
                     }
                 }
@@ -105,18 +105,18 @@ Uses: The class Stack.
             //   Add options for further user commands.
         case 'x':
             if (numbers.top(p) == underflow)
-                cout << "Stack empty" << endl;
+                std::cout << "Stack empty" << std::endl;
             else {
                 // numbers.pop();
                 if (numbers.size() == 1) {
-                    cout << "Stack has just one entry" << endl;
+                    std::cout << "Stack has just one entry" << std::endl;
                     // numbers.push(p);
                 }
 
                 else {
                     // numbers.pop();
                     if (numbers.push(q + p) == overflow)
-                        cout << "Warning: Stack full, lost result" << endl;
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
                         double temp = 0;
@@ -124,13 +124,13 @@ Uses: The class Stack.
                         numbers.pop();
                         numbers.top(s);
                         numbers.pop();
-                        cout << "Numbers first: " << r << " + " << s << endl;
+                        std::cout << "Numbers first: " << r << " + " << s << std::endl;
                         temp = r;
                         r = s;
                         s = temp;
                         numbers.push(s);
                         numbers.push(r);
-                        cout << "Numbers last: " << r << " + " << s << endl;
+                        std::cout << "Numbers last: " << r << " + " << s << std::endl;
                     }
                 }
             }
@@ -139,21 +139,21 @@ Uses: The class Stack.
         case 's':
             numbers.sum(numbers);
             numbers.top(p);
-            cout << "Sum =  " << p << "\n";
+            std::cout << "Sum =  " << p << "\n";
             break;
 
         case 'a':
             numbers.average(numbers);
             numbers.top(p);
-            cout << "Average =  " << p << "\n";
+            std::cout << "Average =  " << p << "\n";
 
         case '/':
             if (numbers.top(p) == underflow)
-                cout << "Stack empty" << endl;
+                std::cout << "Stack empty" << std::endl;
             else {
                 // numbers.pop();
                 if (numbers.size() == 1) {
-                    cout << "Stack has just one entry" << endl;
+                    std::cout << "Stack has just one entry" << std::endl;
                     // numbers.push(p);
                 }
 
@@ -161,10 +161,10 @@ Uses: The class Stack.
                     numbers.pop();
                     numbers.top(q);
                     if (numbers.push(q + p) == overflow)
-                        cout << "Warning: Stack full, lost result" << endl;
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        cout << "The results is for " << p << " / " << q << "= " << p / q << endl;
+                        std::cout << "The results is for " << p << " / " << q << "= " << p / q << std::endl;
                         numbers.pop();
                     }
                 }
@@ -173,11 +173,11 @@ Uses: The class Stack.
 
         case '*':
             if (numbers.top(p) == underflow)
-                cout << "Stack empty" << endl;
+                std::cout << "Stack empty" << std::endl;
             else {
                 // numbers.pop();
                 if (numbers.size() == 1) {
-                    cout << "Stack has just one entry" << endl;
+                    std::cout << "Stack has just one entry" << std::endl;
                     // numbers.push(p);
                 }
 
@@ -185,10 +185,34 @@ Uses: The class Stack.
                     numbers.pop();
                     numbers.top(q);
                     if (numbers.push(q + p) == overflow)
-                        cout << "Warning: Stack full, lost result" << endl;
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        cout << "The results is for " << p << " * " << q << "= " << p * q << endl;
+                        std::cout << "The results is for " << p << " * " << q << "= " << p * q << std::endl;
+                        numbers.pop();
+                    }
+                }
+            }
+            break;
+
+        case '%':
+            if (numbers.top(p) == underflow)
+                std::cout << "Stack empty" << std::endl;
+            else {
+                // numbers.pop();
+                if (numbers.size() == 1) {
+                    std::cout << "Stack has just one entry" << std::endl;
+                    // numbers.push(p);
+                }
+
+                else {
+                    numbers.pop();
+                    numbers.top(q);
+                    if (numbers.push(q + p) == overflow)
+                        std::cout << "Warning: Stack full, lost result" << std::endl;
+                    else{
+                        numbers.pop();
+                        std::cout << "The results is for " << p << " * " << q << "= " << fmod(p,q) << std::endl;
                         numbers.pop();
                     }
                 }
@@ -200,24 +224,24 @@ Uses: The class Stack.
             break;
 
         case 'q':
-            cout << "Calculation finished.\n";
+            std::cout << "Calculation finished.\n";
             return false;
     }
     return true;
 }
 
 void introduction() {
-    cout << "\t --------------------------------------\n";
-    cout << "\t | Welcome to use PostFix-Calculator! | \n";
-    cout << "\t --------------------------------------\n\n";
+    std::cout << "\t --------------------------------------\n";
+    std::cout << "\t | Welcome to use PostFix-Calculator! | \n";
+    std::cout << "\t --------------------------------------\n\n";
 }
 
 void instructions(){
-    cout << "How to use this calculator:"   << endl
-         << "[?] push to stack   [=] print top value" << endl
-         << "[+] [-] [*] [/]  are arithmetic operations" << endl
-         << "[s] gives sum from all values  [h] instructions" << endl
-         << "[x] exchanges the place for last two values" << endl
-         << "[a] gives average from all values" << endl
-         << "[Q]uit." << endl;
+    std::cout << "How to use this calculator:"   << std::endl
+         << "[?] push to stack   [=] print top value" << std::endl
+         << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
+         << "[s] gives sum from all values  [h] instructions" << std::endl
+         << "[x] exchanges the place for last two values" << std::endl
+         << "[a] gives average from all values" << std::endl
+         << "[Q]uit." << std::endl;
 }
