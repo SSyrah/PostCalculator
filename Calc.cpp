@@ -72,7 +72,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                    std::cout << "The results is for " << p << " + " << q << "= " << p + q << std::endl;
+                    std::cout << "The results is for " << p << " + " << q << " = " << p + q << std::endl;
                         numbers.pop();
                     }
                 }
@@ -96,7 +96,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " - " << q << "= " << p - q << std::endl;
+                        std::cout << "The results is for " << p << " - " << q << " = " << p - q << std::endl;
                         numbers.pop();
                     }
                 }

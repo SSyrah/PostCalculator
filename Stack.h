@@ -5,6 +5,8 @@
 #include <ctype.h>
 #include <cmath>
 #include <sstream>
+#include<string.h>
+#include<stdio.h>
 // using namespace std;
 
 // Section 2.2:
