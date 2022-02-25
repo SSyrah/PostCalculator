@@ -53,15 +53,13 @@ Uses: The class Stack and the functions
                         stored_numbers.do_command(command, stored_numbers);
                         num1 = false; num2 = false, operand = false;
                         std::stringstream().swap(ss);
-                    }
-                
-
-                }      
-                    
-            }
+                        std::cout << "size of stack: " << stored_numbers.size() << "\n";
+                        if (stored_numbers.size() == 1){
+                            num1 = true;
+                            }
+                        }
+                    }                
+                }                         
             
-        
-        
-        
     return 0;
 }

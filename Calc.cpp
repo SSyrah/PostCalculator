@@ -72,8 +72,9 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                    std::cout << "The results is for " << p << " + " << q << " = " << p + q << std::endl;
+                    std::cout << "The results is for " << q << " + " << p << " = " << q + p << std::endl;
                         numbers.pop();
+                        numbers.push(p+q);
                     }
                 }
             }
@@ -96,8 +97,9 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " - " << q << " = " << p - q << std::endl;
+                        std::cout << "The results is for " << q << " - " << p << " = " << q - p << std::endl;
                         numbers.pop();
+                        numbers.push(p-q);
                     }
                 }
             }
@@ -165,8 +167,9 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " / " << q << " = " << p / q << std::endl;
+                        std::cout << "The results is for " << q << " / " << p << " = " << q / p << std::endl;
                         numbers.pop();
+                        numbers.push(p/q);
                     }
                 }
             }
@@ -191,6 +194,7 @@ Uses: The class Stack.
                         numbers.pop();
                         std::cout << "The results is for " << p << " * " << q << " = " << p * q << std::endl;
                         numbers.pop();
+                        numbers.push(p*q);
                     }
                 }
             }
@@ -215,6 +219,7 @@ Uses: The class Stack.
                         numbers.pop();
                         std::cout << "The results is for " << p << " % " << q << " = " << fmod(q,p) << std::endl;
                         numbers.pop();
+                        numbers.push(fmod(q,p));
                     }
                 }
             }
@@ -239,6 +244,7 @@ Uses: The class Stack.
                         numbers.pop();
                         std::cout << "The results is for " << p << " ^ " << q << " = " << pow(p,q) << std::endl;
                         numbers.pop();
+                        numbers.push(pow(p,q));
                     }
                 }
             }
@@ -264,6 +270,7 @@ Uses: The class Stack.
                         numbers.pop();
                         std::cout << "The results is for sqrt " << p << " = " << sqrt(p) << std::endl;
                         numbers.pop();
+                        numbers.push(sqrt(p));
                     }
                //}
             }
