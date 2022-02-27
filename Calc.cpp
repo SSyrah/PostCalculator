@@ -19,7 +19,7 @@ char Stack::get_command()
         else {
             std::cout << "Please enter a valid command:"   << std::endl
                     << "[?] push to stack   [=] print top value" << std::endl
-                    << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
+                    << "[+] [-] [p = product] [/]  are arithmetic operations" << std::endl
                     << "[s] gives sum from all values  [h] instructions" << std::endl
                     << "[x] exchanges the place for last two values" << std::endl
                     << "[a] gives average [%] modulo [^] pow [v] sqrt " << std::endl
@@ -175,7 +175,7 @@ Uses: The class Stack.
             }
             break;
 
-        case '*':
+        case 'p':
             if (numbers.top(p) == underflow)
                 std::cout << "Stack empty" << std::endl;
             else {
@@ -217,7 +217,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " % " << q << " = " << fmod(q,p) << std::endl;
+                        std::cout << "The results is for " << q << " % " << p << " = " << fmod(q,p) << std::endl;
                         numbers.pop();
                         numbers.push(fmod(q,p));
                     }
@@ -242,7 +242,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for " << p << " ^ " << q << " = " << pow(p,q) << std::endl;
+                        std::cout << "The results is for " << q << " ^ " << p << " = " << pow(q,p) << std::endl;
                         numbers.pop();
                         numbers.push(pow(p,q));
                     }
@@ -268,7 +268,7 @@ Uses: The class Stack.
                         std::cout << "Warning: Stack full, lost result" << std::endl;
                     else{
                         numbers.pop();
-                        std::cout << "The results is for sqrt " << p << " = " << sqrt(p) << std::endl;
+                        std::cout << "The results is for sqrt " << p << " = " << sqrt(q) << std::endl;
                         numbers.pop();
                         numbers.push(sqrt(p));
                     }
@@ -296,7 +296,7 @@ void introduction() {
 void instructions(){
     std::cout << "How to use this calculator:"   << std::endl
          << "[?] push to stack   [=] print top value" << std::endl
-        << "[+] [-] [*] [/]  are arithmetic operations" << std::endl
+        << "[+] [-] [p = product] [/]  are arithmetic operations" << std::endl
         << "[s] gives sum from all values  [h] instructions" << std::endl
         << "[x] exchanges the place for last two values" << std::endl
         << "[a] gives average [%] modulo [^] pow [v] sqrt " << std::endl
