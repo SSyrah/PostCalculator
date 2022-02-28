@@ -10,7 +10,7 @@ char Stack::get_command()
         std::cin >> command;
         command = tolower(command);
         if (command == '?' || command == '=' || command == '+' ||
-            command == '-' || command == '*' || command == '/' ||
+            command == '-' || command == 'p' || command == '/' ||
             command == 'q' || command == 'x' || command == 's' ||
             command == 'h' || command == 'a' || command == '%' ||
             command == '^' || command == 'v') waiting = false;
@@ -127,13 +127,13 @@ Uses: The class Stack.
                         numbers.pop();
                         numbers.top(s);
                         numbers.pop();
-                        std::cout << "Numbers first: " << r << " + " << s << std::endl;
+                        std::cout << "Numbers first: " << r << " -> " << s << std::endl;
                         temp = r;
                         r = s;
                         s = temp;
                         numbers.push(s);
                         numbers.push(r);
-                        std::cout << "Numbers last: " << r << " + " << s << std::endl;
+                        std::cout << "Numbers after change: " << r << " -> " << s << std::endl;
                     }
                 }
             }
@@ -244,7 +244,8 @@ Uses: The class Stack.
                         numbers.pop();
                         std::cout << "The results is for " << q << " ^ " << p << " = " << pow(q,p) << std::endl;
                         numbers.pop();
-                        numbers.push(pow(p,q));
+                        // std::cout << "q: " << q << "   p: " << p << "\n";
+                        numbers.push(pow(q,p));
                     }
                 }
             }
@@ -262,7 +263,7 @@ Uses: The class Stack.
                 }*/
 
                 // else {
-                    numbers.pop();
+                    // numbers.pop();
                     numbers.top(q);
                     if (numbers.push(q + p) == overflow)
                         std::cout << "Warning: Stack full, lost result" << std::endl;
